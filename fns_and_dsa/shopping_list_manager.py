@@ -1,5 +1,6 @@
 # shopping_list_manager.py
 
+# Definition of the display_menu function
 def display_menu():
     print("\nShopping List Manager")
     print("1. Add Item")
@@ -8,13 +9,21 @@ def display_menu():
     print("4. Exit")
 
 def main():
+    # Implementation of the shopping_list array
     shopping_list = []
 
     while True:
+        # Calling the display_menu function
         display_menu()
-        choice = input("Enter your choice: ").strip()
 
-        if choice == '1':
+        try:
+            # Implementation of Choice Input as a number
+            choice = int(input("Enter your choice (1-4): "))
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 4.")
+            continue
+
+        if choice == 1:
             # Prompt for and add an item
             item = input("Enter the item to add: ").strip()
             if item:
@@ -22,7 +31,7 @@ def main():
                 print(f"{item} has been added to the list.")
             else:
                 print("Invalid input. Item not added.")
-        elif choice == '2':
+        elif choice == 2:
             # Prompt for and remove an item
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
@@ -30,7 +39,7 @@ def main():
                 print(f"{item} has been removed from the list.")
             else:
                 print(f"{item} not found in the list.")
-        elif choice == '3':
+        elif choice == 3:
             # Display the shopping list
             if shopping_list:
                 print("\nShopping List:")
@@ -38,11 +47,11 @@ def main():
                     print(f"{i}. {item}")
             else:
                 print("The shopping list is currently empty.")
-        elif choice == '4':
+        elif choice == 4:
             print("Goodbye!")
             break
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please enter a number between 1 and 4.")
 
 if __name__ == "__main__":
     main()
