@@ -1,6 +1,5 @@
-# arithmetic_operations.py
-
 def perform_operation(num1, num2, operation):
+    """Perform basic arithmetic operations: add, subtract, multiply, divide."""
     if operation == 'add':
         return num1 + num2
     elif operation == 'subtract':
@@ -12,4 +11,4 @@ def perform_operation(num1, num2, operation):
             return "Error: Division by zero is not allowed."
         return num1 / num2
     else:
-        return "Error: Invalid operation."
+        return "Error: Invalid operation. Please use 'add', 'subtract', 'multiply', or 'divide'."
